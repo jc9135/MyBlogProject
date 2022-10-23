@@ -1,9 +1,13 @@
 const Koa = require('koa')
-const router = require('koa-router')()
+const bodyParser = require('koa-bodyparser')
 const {PORT} = require('./config')
 
 
 const app = new Koa()
 
-app.use(router.routes())
-app.listen(PORT,()=>`server is listening in ${PORT}`)
+// routers
+const blog = require('./routes/blog')
+app.use(blog.routes(), blog.allowedMethods())
+
+app.use(bodyParser())
+app.listen(PORT,()=>console.log(`server is listening in ${PORT}`))
