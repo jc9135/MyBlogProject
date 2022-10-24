@@ -1,6 +1,6 @@
 const format = (ctx) => {
   ctx.body = {
-    code: -1,
+    errorCode: -1,
     message: ctx.method + ' >> ' + ctx.url
   }
 }
