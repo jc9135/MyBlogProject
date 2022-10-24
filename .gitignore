@@ -21,3 +21,11 @@ package-lock.json
 .idea
 .DS_Store
 .vscode
+
+*.log*
+**/.nuxt
+.nuxt
+.nitro
+**/.output
+.output
+.env
