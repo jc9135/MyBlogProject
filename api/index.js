@@ -2,6 +2,8 @@ const Koa = require('koa')
 const bodyparser = require('koa-bodyparser')
 const { PORT } = require('./config')
 
+const catchError = require('./utils/catchError')
+
 const app = new Koa()
 
 // middlewares
@@ -10,6 +12,9 @@ app.use(
     enableTypes: ['json', 'form', 'text']
   })
 )
+
+// 全局错误处理
+app.use(catchError)
 
 // routers
 const blog = require('./routes/blog')
