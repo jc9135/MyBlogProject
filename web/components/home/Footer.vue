@@ -1,12 +1,13 @@
 <template>
-  <div class="footer">footer</div>
+  <div class="footer"></div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped>
+<style scoped lang="scss">
 .footer {
   width: 100%;
-  background: url('~/down1.png');
+  height: 27.8125rem;
+  // background: url('/images/down1.png') no-repeat center top;
 }
 </style>
