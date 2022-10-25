@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   koa: ^2.13.4
   koa-bodyparser: ^4.3.0
+  koa-cors: ^0.0.16
   koa-router: ^12.0.0
   log4js: ^6.7.0
   mysql: ^2.18.1
@@ -11,6 +12,7 @@ specifiers:
 dependencies:
   koa: 2.13.4
   koa-bodyparser: 4.3.0
+  koa-cors: 0.0.16
   koa-router: 12.0.0
   log4js: 6.7.0
   mysql: 2.18.1
@@ -401,6 +403,10 @@ packages:
     dependencies:
       co: 4.6.0
       koa-compose: 4.1.0
+    dev: false
+
+  /koa-cors/0.0.16:
+    resolution: {integrity: sha512-s15knPxe3AJBi2I/ZMPL0pSqU+PLYLO6k5tI0AqClkzavowvocPlSdFUwaHNqtjHMhsGmiq2tiX/25iILJx9YA==}
     dev: false
 
   /koa-router/12.0.0:
