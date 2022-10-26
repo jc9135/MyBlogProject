@@ -11,8 +11,8 @@ const { SuccessModel, ErrorModel } = require('../model/responseModel')
 router.prefix('/blog')
 
 router.get('/list', async (ctx, next) => {
-  const { author, title } = ctx.query
-  const blogData = await getBlogList(title, author)
+  const { author, title, tag } = ctx.query
+  const blogData = await getBlogList(title, author, tag)
   if (blogData) {
     ctx.body = new SuccessModel(blogData, '获取博客列表成功')
   } else {

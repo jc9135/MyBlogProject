@@ -1,9 +1,12 @@
 const { exec, escape } = require('../utils/mysql')
 
-const getBlogList = async (title, author) => {
+const getBlogList = async (title, author, tag) => {
   let sql = `select * from blogs where state='1'`
   if (author) {
     sql += ` and author='${author}'`
+  }
+  if (tag) {
+    sql += ` and tag='${tag}'`
   }
   if (title) {
     sql += ` and title like '%${title}%'`
@@ -16,13 +19,15 @@ const getBlogDetail = async (id) => {
   return await exec(sql)
 }
 const createBlog = async (params) => {
-  let sql = `insert into blogs (title, content, author, create_time) values ('${
+  let sql = `insert into blogs (title, content, author, tag, create_time) values ('${
     params.title
-  }','${params.content}','${params.author}',${new Date().getTime()});`
+  }','${params.content}','${params.author}','${
+    params.tag
+  }',${new Date().getTime()});`
   return await exec(sql)
 }
 const updateBlog = async (params) => {
-  let sql = `update blogs set title='${params.title}',content='${params.content}',author='${params.author}' where id='${params.id}'`
+  let sql = `update blogs set title='${params.title}',content='${params.content}',author='${params.author}',tag='${params.tag}'where id='${params.id}'`
   return await exec(sql)
 }
 const deleteBlog = async (id) => {

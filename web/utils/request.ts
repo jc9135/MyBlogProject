@@ -33,6 +33,15 @@ const fetch = (url: string, options?: any): Promise<any> => {
             message: value.message,
             type: 'error'
           })
+        } else if (value.errorCode === 401) {
+          // 处理token失效
+          ElMessage({
+            message: value.message,
+            type: 'error'
+          })
+          nuxtApp.$router.push({
+            path: '/login'
+          })
         } else {
           resolve(value)
         }
