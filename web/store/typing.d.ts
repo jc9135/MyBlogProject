@@ -1,6 +1,7 @@
 declare namespace BlogModule {
   interface State {
     blogList: Datum[] | []
+    token: string
   }
   interface Datum {
     id: number

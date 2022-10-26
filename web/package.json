@@ -20,6 +20,7 @@
     "@nuxtjs/composition-api": "^0.33.1",
     "@nuxtjs/style-resources": "^1.2.1",
     "@pinia/nuxt": "^0.4.3",
+    "cookie-universal-nuxt": "^2.2.2",
     "css-loader": "^6.7.1",
     "node-sass": "^7.0.3",
     "pinia": "^2.0.23",

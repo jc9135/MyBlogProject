@@ -1,4 +1,5 @@
 import { _AsyncData } from 'nuxt/dist/app/composables/asyncData'
+import { useNuxtApp } from '#app'
 //import baseUrl from './baseUrl'
 import { ElMessage } from 'element-plus'
 
@@ -6,19 +7,18 @@ import { ElMessage } from 'element-plus'
 let baseUrl = ''
 // 指定后端返回的基本数据类型
 export interface ResponseConfig {
-  code: number
-  status: number
+  errorCode: number
   data: any
-  msg: string
+  message: string
 }
-export interface ValueConfig {
-  value: any
-}
-
 const fetch = (url: string, options?: any): Promise<any> => {
   const reqUrl = baseUrl + url
+  const nuxtApp = useNuxtApp()
+  const headers = {
+    Authorization: 'Bearer ' + nuxtApp.$cookies.get('token')
+  }
   return new Promise((resolve, reject) => {
-    useFetch(reqUrl, { ...options, initialCache: false })
+    useFetch(reqUrl, { ...options, initialCache: false, headers })
       .then(({ data, error }: any) => {
         if (error.value) {
           reject(error.value)
@@ -28,9 +28,9 @@ const fetch = (url: string, options?: any): Promise<any> => {
         if (!value) {
           // 这里处理错误回调
           // reject(value)
-        } else if (value.code == 102) {
+        } else if (value.errorCode === -1) {
           ElMessage({
-            message: value.msg,
+            message: value.message,
             type: 'error'
           })
         } else {
@@ -51,8 +51,8 @@ export default new (class Http {
     })
   }
 
-  post(url: string, params?: any): Promise<any> {
-    return fetch(url, { method: 'post', params })
+  post(url: string, body?: any): Promise<any> {
+    return fetch(url, { method: 'post', body })
   }
 
   put(url: string, body?: any): Promise<any> {

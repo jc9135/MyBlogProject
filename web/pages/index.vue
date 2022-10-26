@@ -23,6 +23,7 @@ onMounted(() => {
 })
 
 const getBlogData = async () => {
+  console.log('useCookie', useCookie('token').value)
   const res = await getBlogList()
   blogState.updateBlogList(res.data)
 }
