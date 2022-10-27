@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <div class="main-menu"></div>
-    <div class="footer">京ICP备2022030396号</div>
+    <a href="https://beian.miit.gov.cn" target="_blank" class="footer"
+      >京ICP备2022030396号</a
+    >
   </div>
 </template>
 
@@ -70,9 +72,12 @@ const getBlogData = async () => {
 }
 /* iphone6 7 8 plus */
 @media screen and (max-width: 414px) {
-  .detail-container {
-    .detail-item {
-      width: 96%;
+  .home {
+    .main-menu {
+      width: 18.75rem;
+      height: 9.375rem;
+      margin-left: -9.375rem;
+      margin-top: -6.25rem;
     }
   }
 }
