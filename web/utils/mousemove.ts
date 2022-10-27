@@ -30,7 +30,7 @@ const mousemove = (bodyDom) => {
     const red = Math.ceil(Math.random() * 255)
     const green = Math.ceil(Math.random() * 255)
     const blue = Math.ceil(Math.random() * 255)
-    newBubble.style.background = `rgba(${red},${green},${blue},.8)`
+    newBubble.style.background = 'rgb(230, 241, 247,.4)'
 
     // 创建初始大小，随机0-60
     const randomSize = Math.ceil(Math.random() * 10)

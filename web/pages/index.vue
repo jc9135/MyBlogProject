@@ -1,6 +1,25 @@
 <template>
   <div class="home">
-    <div class="main-menu"></div>
+    <div class="main-menu">
+      <div class="menu-top">
+        <div class="menu-item">
+          <div class="iconfont">&#xe7a7;</div>
+          <div>首页</div>
+        </div>
+        <div class="menu-item">
+          <div class="iconfont articel">&#xe6cd;</div>
+          <div>文章列表</div>
+        </div>
+        <div class="menu-item">
+          <div class="iconfont">&#xe653;</div>
+          <div>公众号</div>
+        </div>
+        <div class="menu-item">
+          <div class="iconfont">&#xe74f;</div>
+          <div>邮箱</div>
+        </div>
+      </div>
+    </div>
     <a href="https://beian.miit.gov.cn" target="_blank" class="footer"
       >京ICP备2022030396号</a
     >
@@ -48,9 +67,6 @@ const getBlogData = async () => {
     #27ae60
   );
   background-size: 800%;
-  height: 100vh;
-  width: 100%;
-  z-index: -99;
   .main-menu {
     position: absolute;
     top: 50%;
@@ -59,7 +75,34 @@ const getBlogData = async () => {
     margin-top: -11.25rem;
     width: 31.25rem;
     height: 18.75rem;
-    border: 1px solid $bd-color;
+    display: flex;
+    align-items: center;
+
+    .menu-top {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      color: #fff;
+      .menu-item {
+        margin: 0.3125rem;
+        cursor: pointer;
+        font-size: 0.875rem;
+        display: flex;
+        align-items: center;
+        div {
+          display: inline-block;
+          height: 100%;
+        }
+        .iconfont {
+          font-size: 1.25rem;
+          line-height: 1.125rem;
+          margin-right: 0.1875rem;
+        }
+        .articel {
+          font-size: 0.875rem;
+        }
+      }
+    }
   }
   .footer {
     height: 3.125rem;
@@ -68,6 +111,7 @@ const getBlogData = async () => {
     text-align: center;
     position: absolute;
     bottom: 0;
+    color: #fff;
   }
 }
 /* iphone6 7 8 plus */
