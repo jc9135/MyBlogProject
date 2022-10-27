@@ -1,5 +1,7 @@
 <template>
-  <div class="footer">京ICP备2022030396号</div>
+  <div class="footer">
+    <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2022030396号</a>
+  </div>
 </template>
 
 <script setup lang="ts"></script>

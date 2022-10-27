@@ -20,10 +20,35 @@ const getBlogData = async () => {
 </script>
 
 <style scoped lang="scss">
+@keyframes bgposition {
+  0% {
+    background-position-x: 0;
+  }
+  50% {
+    background-position-x: 100%;
+  }
+  100% {
+    background-position-x: 0;
+  }
+}
 .home {
   width: 100vw;
   height: 100vh;
   position: relative;
+  overflow: hidden;
+  animation: bgposition 15s infinite;
+  background: linear-gradient(
+    125deg,
+    #2980b9,
+    #633bd3,
+    #8e44ad,
+    #192f44,
+    #27ae60
+  );
+  background-size: 800%;
+  height: 100vh;
+  width: 100%;
+  z-index: -99;
   .main-menu {
     position: absolute;
     top: 50%;
