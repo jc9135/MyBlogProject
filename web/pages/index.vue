@@ -22,26 +22,45 @@
       <div class="Menu">
         <ul class="Menu-list" data-offset="10">
           <li class="Menu-list-item" data-offset="20" onclick>
-            Home
-            <span class="Mask"><span>Home</span></span>
-            <span class="Mask"><span>Home</span></span>
+            <NuxtLink to="/list" class="nuxt-linl-a">
+              Home
+              <span class="Mask"><span>Home</span></span>
+              <span class="Mask"><span>Home</span></span>
+            </NuxtLink>
           </li>
           <li class="Menu-list-item" data-offset="16" onclick>
-            About
-            <span class="Mask"><span>About</span></span>
-            <span class="Mask"><span>About</span></span>
-          </li>
-          <li class="Menu-list-item" data-offset="12" onclick>
-            Work
-            <span class="Mask"><span>Work</span></span>
-            <span class="Mask"><span>Work</span></span>
-          </li>
-          <li class="Menu-list-item" data-offset="8" onclick>
-            Contact
-            <span class="Mask"><span>Contact</span></span>
-            <span class="Mask"><span>Contact</span></span>
+            Article
+            <span class="Mask"><span>Article</span></span>
+            <span class="Mask"><span>Article</span></span>
           </li>
         </ul>
+      </div>
+
+      <div class="icon-list-item">
+        <div class="menu-item">
+          <div class="iconfont">&#xe65e;</div>
+          <a href="https://github.com/jc9135/MyBlogProject" target="_blank">
+            <div>github</div>
+          </a>
+        </div>
+        <div class="menu-item popover">
+          <div class="iconfont">&#xe653;</div>
+          <div>联系我</div>
+          <div class="popover-content">
+            <img
+              src="../public/images/qrcode.jpeg"
+              alt=""
+              srcset=""
+              width="150"
+              height="150"
+            />
+          </div>
+        </div>
+        <div class="menu-item popover">
+          <div class="iconfont">&#xe74f;</div>
+          <div>邮箱</div>
+          <div class="popover-content">explosionzing@126.com</div>
+        </div>
       </div>
     </div>
     <a href="https://beian.miit.gov.cn" target="_blank" class="footer"
@@ -104,9 +123,6 @@ $split-color: #fff;
     margin-top: -11.25rem;
     width: 31.25rem;
     height: 18.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     // === Menu <ul> =====
     .Menu-list {
@@ -121,10 +137,74 @@ $split-color: #fff;
     }
 
     // === Menu item =====
+    .icon-list-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 3.125rem;
+      a {
+        color: #fff !important;
+      }
+      .popover {
+        position: relative;
+        &:hover {
+          .popover-content {
+            background-color: #000;
+            box-shadow: 0 0 10px #000;
+            opacity: 1;
+            visibility: visible;
+            &::after {
+              border-top-color: #000;
+            }
+          }
+        }
+        .popover-content {
+          background-color: #333;
+          border-radius: 5px;
+          bottom: 100%;
+          color: #fff;
+          font-size: 14px;
+          left: 50%;
+          margin-bottom: 20px;
+          opacity: 0;
+          padding: 8px;
+          position: absolute;
+          transform: translate(-50%);
+          transition: opacity 0.6s;
+          visibility: hidden;
+          width: auto;
+          &::after {
+            border: 10px solid transparent;
+            bottom: 0;
+            content: '';
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, 20px);
+          }
+        }
+      }
+      .menu-item {
+        margin: 0.3125rem;
+        cursor: pointer;
+        font-size: 0.875rem;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        .iconfont {
+          font-size: 1.25rem;
+          line-height: 1.125rem;
+          margin-right: 0.1875rem;
+          margin-left: 0.625rem;
+        }
+      }
+    }
     .Menu-list-item {
       position: relative;
       color: transparent;
       cursor: pointer;
+      .nuxt-linl-a {
+        color: transparent;
+      }
 
       // === Split Line =====
       &::before {
