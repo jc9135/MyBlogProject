@@ -136,7 +136,7 @@ $split-color: #ff2c75;
         right: -10%;
         height: $split-thickness;
         border-radius: $split-thickness;
-        margin-top: -($split-thickness / 2);
+        margin-top: -0.125rem;
         background: $split-color;
         transform: scale(0);
         transition: transform 0.8s cubic-bezier(0.16, 1.08, 0.38, 0.98);
