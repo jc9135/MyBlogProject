@@ -69,7 +69,7 @@ $perspective: 60rem;
 $font-size: 4.25rem;
 $split-position: 49%;
 $split-thickness: 4px;
-$split-color: #ff2c75;
+$split-color: #fff;
 @keyframes bgposition {
   0% {
     background-position-x: 0;
@@ -173,7 +173,7 @@ $split-color: #ff2c75;
     .Menu-list-item:hover,
     .Menu-list-item:active {
       .Mask {
-        color: #fff;
+        color: #ffed22;
         transform: skewX(12deg) translateX(5px);
       }
       .Mask + .Mask {
@@ -181,6 +181,7 @@ $split-color: #ff2c75;
       }
       &::before {
         transform: scale(1);
+        background: linear-gradient(180deg, #ffed22, #ffff60, #ffed22);
       }
     }
     // .menu-top {
