@@ -46,7 +46,7 @@ const mousemove = (bodyDom) => {
   // 触发mousemove函数
   function handleMouseMove(e) {
     let pageX = e.pageX
-    let pageY = e.pageY
+    let pageY = e.pageY - 20
     createBubble(pageX, pageY)
   }
 
