@@ -3,3 +3,109 @@ $bg-color: #ed795a;
 $bd-color: #eee;
 $input-bd: #50576659;
 $input-foucs-bd: #0091ff;
+
+body {
+  color: #333 !important;
+  font-family: -apple-system BlinkMacSystemFont Tahoma Arial sans-serif,
+    Segoe UI, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei,
+    Microsoft JhengHei, Noto Sans !important;
+}
+article,
+aside,
+blockquote,
+body,
+button,
+code,
+dd,
+details,
+div,
+dl,
+dt,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+input,
+legend,
+li,
+menu,
+nav,
+ol,
+p,
+pre,
+section,
+td,
+textarea,
+th,
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url('../font/iconfont.ttf?t=1666870291502') format('truetype');
+}
+.iconfont {
+  font-family: 'iconfont' !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+// /* pc width > 1024px */
+// body {
+//   background-color: yellow;
+// }
+// /* ipad pro */
+// @media screen and (max-width: 1024px) {
+//   body {
+//     background-color: #ff00ff;
+//   }
+// }
+// /* ipad */
+// @media screen and (max-width: 768px) {
+//   body {
+//     background-color: green;
+//   }
+// }
+// /* iphone6 7 8 plus */
+// @media screen and (max-width: 414px) {
+//   body {
+//     background-color: blue;
+//   }
+// }
+// /* iphoneX */
+// @media screen and (max-width: 375px) and (-webkit-device-pixel-ratio: 3) {
+//   body {
+//     background-color: #0ff000;
+//   }
+// }
+// /* iphone6 7 8 */
+// @media screen and (max-width: 375px) and (-webkit-device-pixel-ratio: 2) {
+//   body {
+//     background-color: #0ff000;
+//   }
+// }
+// /* iphone5 */
+// @media screen and (max-width: 320px) {
+//   body {
+//     background-color: #0ff000;
+//   }
+// }
