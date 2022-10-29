@@ -22,11 +22,11 @@
       <div class="Menu">
         <ul class="Menu-list" data-offset="10">
           <li class="Menu-list-item" data-offset="20" onclick>
-            <NuxtLink to="/list" class="nuxt-linl-a">
+            <a href="/home" class="nuxt-linl-a">
               Home
               <span class="Mask"><span>Home</span></span>
               <span class="Mask"><span>Home</span></span>
-            </NuxtLink>
+            </a>
           </li>
           <li class="Menu-list-item" data-offset="16" onclick>
             Article
@@ -69,19 +69,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import useBlogState from '~~/store'
-import { getBlogList } from '~~/utils/api'
-const blogState = useBlogState()
-onMounted(() => {
-  getBlogData()
-})
-
-const getBlogData = async () => {
-  const res = await getBlogList()
-  blogState.updateBlogList(res.data)
-}
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 $perspective: 60rem;
