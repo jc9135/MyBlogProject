@@ -28,10 +28,10 @@ jobs:
         run: |
           # 登录阿里云镜像容器服务
           docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.DOCKER_PASSWORD }}
-          # 使用当前目录的 Dockerfile 创建镜像，标签为 nuxtBlogWeb:latest
+          # 使用当前目录的 Dockerfile 创建镜像，标签为 nuxtblogweb:latest
           docker build -t nuxtblogweb:latest ./web 
           # 打标签
-          docker tag nuxtBlogWeb registry.cn-hangzhou.aliyuncs.com/jiangchaow/jiangchaow:latest
+          docker tag nuxtblogweb registry.cn-hangzhou.aliyuncs.com/jiangchaow/jiangchaow:latest
           # 推送到阿里云镜像容器服务
           docker push registry.cn-hangzhou.aliyuncs.com/jiangchaow/jiangchaow:latest
       # 登录服务器执行脚本
@@ -41,4 +41,4 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
-          script: cd /home/nuxtBlogWeb/web/ && sh dockerBootstrap.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+          script: cd /home/nuxtblogweb/web/ && sh dockerBootstrap.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
