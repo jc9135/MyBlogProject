@@ -8,10 +8,10 @@ echo -e "---------删除本地容器和镜像--------"
 # 删除本地容器
 docker rm jiangchaow
 # 删除本地镜像
-docker rmi registry.cn-hangzhou.aliyuncs.com/yusongh/jiangchaow:latest
+docker rmi registry.cn-hangzhou.aliyuncs.com/jiangchaow/jiangchaow:latest
 echo -e "---------拉取镜像--------"
 # 拉取镜像
-docker pull registry.cn-hangzhou.aliyuncs.com/yusongh/jiangchaow:latest
+docker pull registry.cn-hangzhou.aliyuncs.com/jiangchaow/jiangchaow:latest
 echo -e "---------创建容器并运行容器--------"
 # -rm: docker会在容器退出时删除与它关联的数据卷
 # -d: 后台运行容器，并返回容器ID
