@@ -2,8 +2,8 @@ name: Docker Image CI # Actions名称
 
 on: # 执行时机
   push:
-    branches:
-      - master
+    branches:
+      - master
 
 jobs:
   build:
