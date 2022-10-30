@@ -2,7 +2,8 @@ name: Docker Image CI # Actions名称
 
 on: # 执行时机
   push:
-    branches: [ main ]
+    branches:
+      - master
 
 jobs:
   build:
@@ -12,7 +13,7 @@ jobs:
       # 拉取代码
       - name: checkout # 步骤名字
         # 使用action库  actions/checkout拉取源码
-        uses: actions/checkout@main
+        uses: actions/checkout@master
 
       # 安装依赖
       - name: install
@@ -35,7 +36,7 @@ jobs:
           docker push registry.cn-hangzhou.aliyuncs.com/yusongh/react-demo:latest
       # 登录服务器执行脚本
       - name: ssh docker login
-        uses: appleboy/ssh-action@main
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
