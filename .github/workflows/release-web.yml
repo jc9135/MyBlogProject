@@ -17,16 +17,25 @@ jobs:
 
       # 安装依赖
       - name: Install
-        run: cd ./web && ls && npm install --legacy-peer-deps
+        run: |
+          cd ./web 
+          ls 
+          npm install --legacy-peer-deps
 
       # 打包
       - name: Build Project
-        run: cd ./web && ls && npm run build
+        run: |
+          cd ./web 
+          ls 
+          npm run build
 
       # 生成 Release
       - name: Build Release
         uses: actions/setup-node@master
-      - run: cd ./web  && tar -zcvf release-web.tgz .output .nuxt public nuxt.config.ts package.json package-lock.json ecosystem.config.js && ls
+      - run: |
+          cd ./web 
+          tar -zcvf release-web.tgz .output .nuxt public nuxt.config.ts package.json package-lock.json ecosystem.config.js 
+          ls
 
         # 发布 Release
       - name: Create Release
@@ -35,8 +44,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          tag_name: Tag ${{ github.ref }}
+          tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
+          body: TODO New Release.
           draft: false
           prerelease: false
 
