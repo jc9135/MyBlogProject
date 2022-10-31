@@ -26,7 +26,7 @@ jobs:
       # 生成 Release
       - name: Build Release
         uses: actions/setup-node@master
-        run: cd ./web && ls  && tar -zcvf release-web.tgz .output .nuxt public nuxt.config.ts package.json package-lock.json ecosystem.config.js
+      - run: cd ./web && ls  && tar -zcvf release-web.tgz .output .nuxt public nuxt.config.ts package.json package-lock.json ecosystem.config.js
 
         # 发布 Release
       - name: Create Release
