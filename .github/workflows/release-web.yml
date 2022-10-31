@@ -26,7 +26,7 @@ jobs:
       # 生成 Release
       - name: Build Release
         uses: actions/setup-node@master
-      - run: cd ./web && ls  && tar -zcvf release-web.tgz .output .nuxt public nuxt.config.ts package.json package-lock.json ecosystem.config.js
+      - run: cd ./web  && tar -zcvf release-web.tgz .output .nuxt public nuxt.config.ts package.json package-lock.json ecosystem.config.js && ls
 
         # 发布 Release
       - name: Create Release
@@ -35,7 +35,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
+          tag_name: Tag ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
@@ -48,7 +48,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./release-web.tgz
+          asset_path: ./web/release-web.tgz
           asset_name: release-web.tgz
           asset_content_type: application/x-tgz
 
@@ -62,7 +62,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd /home/blogWeb/
-            wget https://github.com/jc9135/MyBlogProject -O release-web.tgz
+            wget https://github.com/jc9135/MyBlogProject/web/ -O release-web.tgz
             tar zxvf release-web.tgz
             npm install --legacy-peer-deps
             pm2 reload ecosystem.config.js
