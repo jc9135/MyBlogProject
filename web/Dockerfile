@@ -2,6 +2,8 @@
 FROM nginx
 # 复制构建文件到容器中
 COPY ./.output/ /usr/share/nginx/html/
+RUN cd /etc/nginx/conf.d/ 
+RUN ls
 # 复制nginx配置到容器中
 COPY ./nginx.conf /etc/nginx/conf.d/nuxtblogweb.conf
 # 指定端口
