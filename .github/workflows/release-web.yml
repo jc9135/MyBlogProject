@@ -72,7 +72,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd /home/blogWeb/
-            wget https://github.com/jc9135/MyBlogProject/web/ -O release-web.tgz
+            wget https://github.com/jc9135/MyBlogProject/ -O release-web.tgz
             tar zxvf release-web.tgz
             npm install --legacy-peer-deps
             pm2 reload ecosystem.config.js
