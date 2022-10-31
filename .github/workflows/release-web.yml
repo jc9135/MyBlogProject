@@ -1,4 +1,4 @@
-name: Docker Image CI # Actions名称
+name: Blog Web CI # Actions名称
 
 on: # 执行时机
   push:
@@ -11,25 +11,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # 拉取代码
-      - name: checkout # 步骤名字
+      - name: Checkout # 步骤名字
         # 使用action库  actions/checkout拉取源码
         uses: actions/checkout@master
 
       # 安装依赖
-      - name: install
+      - name: Install
         run: cd ./web && ls && npm install --legacy-peer-deps
 
       # 打包
-      - name: build project
+      - name: Build Project
         run: cd ./web && ls && npm run build
 
       # 生成 Release
-      - name: build release
+      - name: Build Release
         uses: actions/setup-node@master
-        run: cd ./web && ls  && tar -zcvf release.tgz .output .nuxt public nuxt.config.ts package.json package-lock.json ecosystem.config.js
+        run: cd ./web && ls  && tar -zcvf release-web.tgz .output .nuxt public nuxt.config.ts package.json package-lock.json ecosystem.config.js
 
         # 发布 Release
-      - name: create release
+      - name: Create Release
         id: create_release
         uses: actions/create-release@master
         env:
@@ -48,8 +48,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./release.tgz
-          asset_name: release.tgz
+          asset_path: ./release-web.tgz
+          asset_name: release-web.tgz
           asset_content_type: application/x-tgz
 
       # 部署到服务器
@@ -62,7 +62,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd /home/blogWeb/
-            wget https://github.com/jc9135/MyBlogProject -O release.tgz
-            tar zxvf release.tgz
+            wget https://github.com/jc9135/MyBlogProject -O release-web.tgz
+            tar zxvf release-web.tgz
             npm install --legacy-peer-deps
             pm2 reload ecosystem.config.js
