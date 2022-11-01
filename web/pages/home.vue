@@ -152,6 +152,7 @@ const articlelist = reactive([
         width: 55%;
         img {
           width: 100%;
+          max-width: 37.5rem;
         }
       }
     }
