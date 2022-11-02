@@ -48,7 +48,7 @@
           <div>联系我</div>
           <div class="popover-content">
             <img
-              src="../public/images/qrcode.jpeg"
+              src="/images/qrcode.jpeg"
               alt=""
               srcset=""
               width="150"
@@ -63,9 +63,17 @@
         </div>
       </div>
     </div>
-    <a href="https://beian.miit.gov.cn" target="_blank" class="footer"
-      >京ICP备2022030396号</a
-    >
+    <div class="footer">
+      <a href="https://beian.miit.gov.cn" target="_blank"
+        >京ICP备2022030396号</a
+      >
+      <a
+        href="http://www.beian.gov.cn/portal/index.do"
+        target="_blank"
+        rel="noopener noreferrer"
+        >京公网安备11010802040658号</a
+      >
+    </div>
   </div>
 </template>
 
@@ -285,7 +293,10 @@ $split-color: #fff;
     text-align: center;
     position: absolute;
     bottom: 0;
-    color: #fff;
+    a {
+      color: #fff;
+      margin: 0 0.3125rem;
+    }
   }
 }
 /* iphone6 7 8 plus */

@@ -9,7 +9,7 @@
         <div class="welcome">欢迎光临</div>
         <div class="typing">你坚持的事情一定会转过头来拥抱你的!</div>
       </div>
-      <img src="~~/public/images/img1.jpg" alt="" />
+      <img src="/images/img1.jpg" alt="" />
     </div>
     <div class="article-card">
       <div class="card-item" v-for="item in articlelist" :key="item.id">
@@ -21,7 +21,7 @@
           <div class="description">{{ item.description }}</div>
         </div>
         <div class="right">
-          <img src="~~/public/images/img2.jpg" alt="" srcset="" />
+          <img src="/images/img2.jpg" alt="" srcset="" />
         </div>
       </div>
     </div>
