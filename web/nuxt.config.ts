@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   // styleResources: {
   //   scss: ['@/assets/scss/base.scss']
   // },
-  // modules: ['cookie-universal-nuxt'],
+  modules: ['cookie-universal-nuxt'],
   buildModules: ['@pinia/nuxt'],
   // css: ['@/assets/scss/global.scss'],
   // build
