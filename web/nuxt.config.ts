@@ -29,5 +29,10 @@ export default defineNuxtConfig({
         }
       }
     }
-  }
+  },
+  script: [
+    {
+      src: 'https://unpkg.com/mermaid/dist/mermaid.min.js'
+    }
+  ]
 })
