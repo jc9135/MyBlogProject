@@ -1,7 +1,10 @@
 const Koa = require('koa')
-const bodyparser = require('koa-bodyparser')
+// const bodyparser = require('koa-bodyparser')
 const cors = require('koa-cors') // 用于处理跨域
 const koaJwt = require('koa-jwt')
+const koaBody = require('koa-body')
+const path = require('path')
+const fs = require('fs')
 
 const logger = require('./utils/logger')
 const { PORT, secret } = require('./config')
@@ -28,13 +31,39 @@ app.use(
     exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'] // 设置获取其他自定义字段
   })
 )
-
-// middlewares
 app.use(
-  bodyparser({
-    enableTypes: ['json', 'form', 'text']
+  koaBody.koaBody({
+    multipart: true,
+    formidable: {
+      uploadDir: path.join(__dirname, '/upload/'), // 设置文件上传目录
+      keepExtensions: true, // 保持文件的后缀
+      maxFieldsSize: 10 * 1024 * 1024, // 文件上传大小限制
+      onFileBegin: (name, file) => {
+        // 文件名称保留原始文件名称
+        let url = path.join(__dirname, './upload')
+        const fileName = file.originalFilename
+        file.name = fileName
+        file.newFilename = fileName
+        // 覆盖文件存放的完整路径(保留原始名称)
+        file.path = `/upload/${fileName}`
+        file.filepath = `${url}/${fileName}`
+      },
+      onError: (error) => {
+        app.status = 400
+        log4js.error(error)
+        // 这里可以定义自己的返回内容
+        app.body = { code: 400, msg: '上传失败', data: {} }
+        return
+      }
+    }
   })
 )
+// middlewares
+// app.use(
+//   bodyparser({
+//     enableTypes: ['json', 'form', 'text']
+//   })
+// )
 
 // logger
 app.use(async (ctx, next) => {
@@ -59,16 +88,18 @@ app.use(function (ctx, next) {
 
 app.use(
   koaJwt({ secret: secret }).unless({
-    path: [/^\/user\/login/]
+    path: [/^\/user\/login/, '/upload/uploadImg']
   })
 )
 
 // routers
 const blog = require('./routes/blog')
 const user = require('./routes/user')
+const uploadImg = require('./routes/uploadImg')
 
 app.use(blog.routes(), blog.allowedMethods())
 app.use(user.routes(), user.allowedMethods())
+app.use(uploadImg.routes(), uploadImg.allowedMethods())
 
 // 全局错误处理
 app.use(catchError)

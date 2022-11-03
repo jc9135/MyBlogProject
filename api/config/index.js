@@ -13,8 +13,12 @@ if (env === 'dev') {
   }
 }
 const secret = 'jiangchao'
+const SECRET_ID = 'AKIDJYirnU1UlofKn3QfgXCf4GH4iIiwwiHD'
+const SECRET_KEY = 'sbDmIhy4ugFcnlpmaG2scBXsX1OqunUQ'
 module.exports = {
   PORT,
   MYSQL_CONFIG,
-  secret
+  secret,
+  SECRET_ID,
+  SECRET_KEY
 }
