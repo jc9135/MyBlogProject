@@ -73,7 +73,7 @@ jobs:
           script: |
             cd /home/blogWeb/
             rm -rf release-web.tgz
-            wget https://github.com/jc9135/MyBlogProject/releases/download/refs%2Fheads%2Fmaster/release-web.tgz
+            wget https://github.com/jc9135/MyBlogProject/releases/download/refs%2Fheads%2Fmaster_tag/release-web.tgz
             tar zxvf release-web.tgz
             npm install --legacy-peer-deps
             pm2 reload ecosystem.config.js
