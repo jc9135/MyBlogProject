@@ -19,7 +19,7 @@ jobs:
 
       # 安装依赖
       - name: npm install
-        run: cd ./web && npm install
+        run: cd ./web && npm install --legacy-peer-deps
 
       #打包项目
       - name: Build
