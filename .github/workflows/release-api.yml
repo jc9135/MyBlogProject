@@ -1,4 +1,4 @@
-name: Deploy My Web Server
+name: Deploy My Api Server
 
 on:
   push:
@@ -19,11 +19,11 @@ jobs:
 
       # 安装依赖
       - name: npm install
-        run: cd ./web && npm install
+        run: cd ./api && npm install pnpm -g && pnpm install
 
       #打包项目
       - name: Build
-        run: cd ./web && npm run build
+        run: cd ./api && npm run build
 
       #部署到服务器
       - name: Deploy to Staging My server
@@ -33,15 +33,15 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.MY_SERVER_PRIVATE_KEY }} #后面指定为该仓库配置的私钥
           ARGS: ${{ secrets.SSH_PASSWORD }}
           # 源目录，编译后生成的文件目录
-          SOURCE: '/web/'
+          SOURCE: '/api/'
           #服务器公网地址
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           #服务器用户名-一般默认root
           REMOTE_USER: ${{ secrets.SSH_USERNAME }}
           #服务器中，代码部署的位置
-          TARGET: '/home/blogWeb/'
+          TARGET: '/home/blogApi/'
           #包含的文件
-          INCLUDE: '/.outpu/, /.nuxt/, /public/, /nuxt.config.ts/, /package.json/, /package-lock.json/, /ecosystem.config.js /'
+          # EXCLUDE: '/.outpu/, /.nuxt/, /public/, /nuxt.config.ts/, /package.json/, /package-lock.json/, /ecosystem.config.js /'
 
       - name: Reload Server
         uses: appleboy/ssh-action@master
@@ -51,6 +51,5 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /home/blogWeb/
-            npm install --legacy-peer-deps
-            pm2 reload ecosystem.config.js
+            cd /home/blogApi/
+            pm2 restart blogApi
