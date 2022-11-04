@@ -40,8 +40,8 @@ jobs:
           REMOTE_USER: ${{ secrets.SSH_USERNAME }}
           #服务器中，代码部署的位置
           TARGET: '/home/blogApi/'
-          #包含的文件
-          # EXCLUDE: '/.outpu/, /.nuxt/, /public/, /nuxt.config.ts/, /package.json/, /package-lock.json/, /ecosystem.config.js /'
+          #排除的文件
+          EXCLUDE: '/node_modules/'
 
       - name: Reload Server
         uses: appleboy/ssh-action@master
@@ -52,4 +52,5 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd /home/blogApi/
-            pm2 restart blogApi
+            pnpm install
+            npm run prd

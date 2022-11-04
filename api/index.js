@@ -109,4 +109,4 @@ app.use(async (ctx, next) => {
   await NotFound(ctx)
 })
 
-app.listen(PORT, () => logger.info(`server is listening in ${PORT}`))
+module.exports = app
