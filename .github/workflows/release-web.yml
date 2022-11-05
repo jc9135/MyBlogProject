@@ -41,7 +41,7 @@ jobs:
           #服务器中，代码部署的位置
           TARGET: '/home/blogWeb/'
           #包含的文件
-          EXCLUDE: '/tsconfig.json/, /README.md/, /app.vue/, /utils/, /pages/, /layouts/, /store/, /components/, /assets/, /node_modules/, /plugins/'
+          EXCLUDE: '/node_modules/'
 
       - name: Reload Server
         uses: appleboy/ssh-action@master
