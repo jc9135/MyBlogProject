@@ -34,5 +34,19 @@ export default defineNuxtConfig({
     {
       src: 'https://unpkg.com/mermaid/dist/mermaid.min.js'
     }
-  ]
+  ],
+  head: {
+    title: 'jiangchao',
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1,user-scalable=0'
+      },
+      { name: 'referrer', content: 'no-referrer' },
+      { hid: 'description', name: 'description', content: '' },
+      //在此处添加
+      { name: 'referrer', content: 'no-referrer' }
+    ]
+  }
 })
