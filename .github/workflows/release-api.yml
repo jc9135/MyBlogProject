@@ -53,4 +53,4 @@ jobs:
           script: |
             cd /home/blogApi/
             pnpm install
-            pm2 reload ecosystem.config.js --env
+            pm2 reload ecosystem.config.js --env production
