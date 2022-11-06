@@ -108,5 +108,5 @@ app.use(catchError)
 app.use(async (ctx, next) => {
   await NotFound(ctx)
 })
-
+app.listen(PORT, () => `server listening in ${PORT}`)
 module.exports = app
