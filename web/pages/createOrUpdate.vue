@@ -223,7 +223,7 @@ const handleClose = () => {
   dialogVisible.value = false
 }
 const uploadSuccess = (response: any) => {
-  formInline.cover = 'https:/' + response.data.Location
+  formInline.cover = 'https://' + response.data.Location
   console.log(fileList.value)
 }
 const fileList = ref<UploadUserFile[]>([])
