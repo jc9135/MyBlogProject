@@ -18,12 +18,12 @@ jobs:
         uses: actions/setup-node@v3
 
       # 安装依赖
-      - name: npm install
-        run: cd ./api && npm install pnpm -g && pnpm install
+      #- name: npm install
+      # run: cd ./api && npm install pnpm -g && pnpm install
 
       #打包项目
-      - name: Build
-        run: cd ./api && npm run build
+      #- name: Build
+      # run: cd ./api && npm run build
 
       #部署到服务器
       - name: Deploy to Staging My server
