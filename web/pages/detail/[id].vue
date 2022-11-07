@@ -109,4 +109,9 @@ const getBlogDetailFuc = async () => {
     }
   }
 }
+@media screen and (max-width: 900px) {
+  .cross-line {
+    margin: 0.625rem 0 2.5rem !important;
+  }
+}
 </style>

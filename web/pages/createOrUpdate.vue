@@ -16,7 +16,7 @@
       <el-dialog
         v-model="dialogVisible"
         title="发布文章"
-        width="30%"
+        width="70%"
         :before-close="handleClose"
       >
         <el-form

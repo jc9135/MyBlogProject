@@ -19,16 +19,16 @@ import Header from '~~/components/home/Header.vue'
 
 <style scoped lang="scss">
 .main-container {
-  width: 81.25rem;
-  margin: 0 auto;
+  max-width: 50rem;
+  margin: auto;
   padding: 0.9375rem 0;
   min-height: calc(100vh - 31.25rem);
   display: flex;
   .body-box {
-    width: 65%;
+    width: 100%;
   }
   .sidebar-box {
-    width: 30%;
+    width: 0;
   }
 }
 

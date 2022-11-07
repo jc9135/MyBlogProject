@@ -27,11 +27,23 @@
               <span class="Mask"><span>Home</span></span>
               <span class="Mask"><span>Home</span></span>
             </a>
+            <!-- <div @click="toPath('/home')" class="nuxt-linl-a">
+              Home
+              <span class="Mask"><span>Home</span></span>
+              <span class="Mask"><span>Home</span></span>
+            </div> -->
           </li>
           <li class="Menu-list-item" data-offset="16" onclick>
-            Article
-            <span class="Mask"><span>Article</span></span>
-            <span class="Mask"><span>Article</span></span>
+            <a href="/list" class="nuxt-linl-a">
+              Article
+              <span class="Mask"><span>Article</span></span>
+              <span class="Mask"><span>Article</span></span>
+            </a>
+            <!-- <div @click="toPath('/list')" class="nuxt-linl-a">
+              Article
+              <span class="Mask"><span>Article</span></span>
+              <span class="Mask"><span>Article</span></span>
+            </div> -->
           </li>
         </ul>
       </div>
@@ -77,7 +89,12 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const router = useRouter()
+const toPath = (path) => {
+  router.push({ path })
+}
+</script>
 
 <style scoped lang="scss">
 $perspective: 60rem;
@@ -293,6 +310,7 @@ $split-color: #fff;
     text-align: center;
     position: absolute;
     bottom: 0;
+    font-size: 0.75rem;
     a {
       color: #fff;
       margin: 0 0.3125rem;

@@ -25,16 +25,20 @@
       <img src="/images/img1.jpg" alt="" />
     </div>
     <div class="article-card">
-      <div class="card-item" v-for="item in state.articlelist" :key="item.id">
+      <div
+        class="card-item"
+        v-for="(item, index) in state.articlelist"
+        :key="item.id"
+      >
+        <div class="right">
+          <img :src="item.cover" alt="" srcset="" />
+        </div>
         <div class="left">
           <div class="time">
             <FormateDate :time="new Date(item.create_time)" />
           </div>
           <div class="title" @click="goDetail(item.id)">{{ item.title }}</div>
-          <div class="description">{{ item.description }}</div>
-        </div>
-        <div class="right">
-          <img :src="item.cover" alt="" srcset="" />
+          <div class="description">{{ item.describe_text }}</div>
         </div>
       </div>
     </div>
@@ -219,15 +223,17 @@ const getBlogData = async () => {
     }
     .card-item {
       width: 100%;
-      height: 18.75rem;
       display: flex;
       align-items: center;
       position: relative;
       margin-bottom: 6.25rem;
       z-index: 1;
+      &:nth-child(odd) {
+        flex-direction: row-reverse;
+      }
       .left {
         width: 45%;
-        height: 18.125rem;
+        height: 16rem;
         box-sizing: border-box;
         padding: 3.125rem 3.75rem 0;
         border: 1px solid $bd-color;
@@ -285,13 +291,31 @@ const getBlogData = async () => {
 }
 
 /* iphone6 7 8 plus */
-@media screen and (max-width: 414px) {
-  .home {
-    .main-menu {
-      width: 18.75rem;
-      height: 9.375rem;
-      margin-left: -9.375rem;
-      margin-top: -6.25rem;
+@media screen and (max-width: 900px) {
+  .home-container {
+    .article-card {
+      width: 100% !important;
+      .card-item {
+        flex-direction: column !important;
+        margin-top: 6.25rem;
+        .left {
+          background: #fff;
+          border: none !important;
+          height: auto !important;
+          margin: auto !important;
+          padding: 1.25rem !important;
+          width: 100% !important;
+          border-bottom: 1px solid $bd-color !important;
+        }
+        .right {
+          width: 100% !important;
+          img {
+            max-width: 100% !important;
+            width: 100% !important;
+            height: 100%;
+          }
+        }
+      }
     }
   }
 }
