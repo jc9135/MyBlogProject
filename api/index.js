@@ -6,6 +6,7 @@ const koaBody = require('koa-body')
 const path = require('path')
 const fs = require('fs')
 
+const JWT = require('./middleWares/tokenAuth/index')
 const logger = require('./utils/logger')
 const { PORT, secret } = require('./config')
 const { NotFound } = require('./utils/notFound')
@@ -91,6 +92,23 @@ app.use(
     path: [/^\/user\/login/, '/upload/uploadImg']
   })
 )
+app.use(async (ctx, next) => {
+  await next()
+  try {
+    let authorization = ctx.header.authorization || ''
+    let authorizationArr = authorization.split(' ')
+    let data = new JWT().verify(authorizationArr[1])
+    ctx.body = {
+      ...ctx.body,
+      admin: data?.admin || false
+    }
+  } catch (error) {
+    ctx.body = {
+      ...ctx.body,
+      admin: false
+    }
+  }
+})
 
 // routers
 const blog = require('./routes/blog')
@@ -108,5 +126,7 @@ app.use(catchError)
 app.use(async (ctx, next) => {
   await NotFound(ctx)
 })
-app.listen(PORT, () => `server listening in ${PORT}`)
-module.exports = app
+app.listen(PORT, () => {
+  console.log(`server listening in ${PORT}`)
+})
+// module.exports = app

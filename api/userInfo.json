@@ -1,4 +1,12 @@
 {
-  "username": "jiangchao",
-  "password": "jiangchao"
+  "userinfo": [
+    {
+      "username": "jiangchao",
+      "password": "jiangchao"
+    },
+    {
+      "username": "admin",
+      "password": "admin"
+    }
+  ]
 }
