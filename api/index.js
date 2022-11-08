@@ -74,8 +74,10 @@ app.use(async (ctx, next) => {
   logger.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 // Custom 401 handling if you don't want to expose koa-jwt errors to users
-app.use(function (ctx, next) {
-  return next().catch((err) => {
+app.use(async (ctx, next) => {
+  try {
+    await next() // next is now a function
+  } catch (err) {
     if (401 == err.status) {
       ctx.body = {
         errorCode: 401,
@@ -84,7 +86,7 @@ app.use(function (ctx, next) {
     } else {
       throw err
     }
-  })
+  }
 })
 
 app.use(
