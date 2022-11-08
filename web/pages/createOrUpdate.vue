@@ -115,7 +115,6 @@ import 'md-editor-v3/lib/style.css'
 const router = useRouter()
 const route = useRoute()
 onMounted(() => {
-  console.log('onMounted', route?.query?.type)
   if (route?.query?.type === 'update') {
     setTimeout(() => {
       getBlogDetailFuc()

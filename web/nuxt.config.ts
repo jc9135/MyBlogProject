@@ -30,12 +30,7 @@ export default defineNuxtConfig({
       }
     }
   },
-  script: [
-    {
-      src: 'https://unpkg.com/mermaid/dist/mermaid.min.js'
-    }
-  ],
-  head: {
+  meta: {
     title: 'jiangchao',
     meta: [
       { charset: 'utf-8' },
@@ -44,9 +39,27 @@ export default defineNuxtConfig({
         content: 'width=device-width, initial-scale=1,user-scalable=0'
       },
       { name: 'referrer', content: 'no-referrer' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: '本博客是个人技术内容分享平台。通过技术文章分享来记录成长。'
+      },
       //在此处添加
-      { name: 'referrer', content: 'no-referrer' }
+      { name: 'referrer', content: 'no-referrer' },
+      { name: 'keyword', content: 'Vue.js,前端面试题,React,Node.js,CI,CD' },
+      {
+        property: 'og:title',
+        content: 'Test title',
+        // following template options are identical
+        // template: '%s - My page',
+        template: (chunk) => `${chunk} - My page`,
+        vmid: 'og:title'
+      }
+    ],
+    script: [
+      {
+        src: 'https://unpkg.com/mermaid/dist/mermaid.min.js'
+      }
     ]
   }
 })
