@@ -52,5 +52,6 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd /home/blogApi/
+            mkdir upload
             pnpm install
             pm2 reload ecosystem.config.js --env production
