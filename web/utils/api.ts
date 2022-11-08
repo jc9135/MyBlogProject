@@ -18,3 +18,6 @@ export const updateBlogItem = (params?) => {
 export const getBlogDetail = (params?) => {
   return Http.get('/api/blog/detail/' + params.id)
 }
+export const updateImg = (params?) => {
+  return Http.post('/api/upload/uploadImg', params)
+}

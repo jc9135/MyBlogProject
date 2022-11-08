@@ -11,7 +11,11 @@
         >编辑完成</ElButton
       >
     </div>
-    <md-editor v-model="content" :htmlPreview="true" />
+    <md-editor
+      v-model="content"
+      :htmlPreview="true"
+      @on-upload-img="onUploadImg"
+    />
     <Teleport to="body">
       <el-dialog
         v-model="dialogVisible"
@@ -110,7 +114,12 @@ import { Delete, Plus } from '@element-plus/icons-vue'
 import type { UploadFile, UploadUserFile } from 'element-plus'
 import MdEditor from 'md-editor-v3'
 import { TAG_LIST } from '~~/utils/contants'
-import { createBlogItem, updateBlogItem, getBlogDetail } from '~~/utils/api'
+import {
+  createBlogItem,
+  updateBlogItem,
+  getBlogDetail,
+  updateImg
+} from '~~/utils/api'
 import 'md-editor-v3/lib/style.css'
 const router = useRouter()
 const route = useRoute()
@@ -224,6 +233,14 @@ const handleClose = () => {
 const uploadSuccess = (response: any) => {
   formInline.cover = 'https://' + response.data.Location
   console.log(fileList.value)
+}
+const onUploadImg = async (files, callback) => {
+  let formData = new FormData()
+  formData.append('file', files[0])
+  let res = await updateImg(formData)
+  if (res?.errorCode === 0) {
+    callback(['https://' + res.data.Location])
+  }
 }
 const fileList = ref<UploadUserFile[]>([])
 
