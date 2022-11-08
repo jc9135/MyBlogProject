@@ -77,6 +77,7 @@ const getBlogData = async () => {
   margin: auto;
   padding: 0.9375rem 0;
   min-height: calc(100vh - 31.25rem);
+  box-sizing: border-box;
   display: flex;
   .body-box {
     width: 100%;

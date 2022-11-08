@@ -43,4 +43,10 @@ const back = () => {
   .search {
   }
 }
+/* iphone6 7 8 plus */
+@media screen and (max-width: 414px) {
+  .tab-list {
+    display: none !important;
+  }
+}
 </style>
