@@ -20,7 +20,7 @@
             <span class="letter">动</span>
           </div>
         </div>
-        <div class="typing">你坚持的事情一定会转过头来拥抱你的!</div>
+        <div class="typing" ref="typing"></div>
       </div>
       <img src="/images/img1.jpg" alt="" />
     </div>
@@ -52,14 +52,30 @@ import useBlogState from '~~/store'
 import { getBlogList } from '~~/utils/api'
 const blogState = useBlogState()
 const router = useRouter()
+const typing = ref(null)
 let state = reactive({
   articlelist: []
 })
 onMounted(() => {
   setTimeout(() => {
+    renderTyping()
     getBlogData()
   }, 1)
 })
+const renderTyping = () => {
+  let str = '你坚持的事情一定会转过头来拥抱你的!'
+  let strArr = str.split('')
+  let timer,
+    i = 0
+  timer = setInterval(() => {
+    if (i <= strArr.length) {
+      typing.value.innerText = strArr.slice(0, i).join('')
+      i++
+    } else {
+      clearInterval(timer)
+    }
+  }, 150)
+}
 const goDetail = (id) => {
   router.push({
     path: `/detail/${id}`
@@ -170,7 +186,8 @@ const getBlogData = async () => {
         width: 100%;
         animation: typing 2s steps(15), blink-caret 0.75s step-end infinite;
         overflow: hidden;
-        white-space: nowrap;
+        // white-space: nowrap;
+        height: 2.8125rem;
       }
       /* 打印效果 */
       @keyframes typing {
