@@ -247,6 +247,12 @@ const getBlogData = async () => {
       z-index: 1;
       &:nth-child(odd) {
         flex-direction: row-reverse;
+        .left {
+          width: 55%;
+        }
+        .right {
+          width: 45%;
+        }
       }
       .left {
         width: 45%;
@@ -300,7 +306,7 @@ const getBlogData = async () => {
         width: 55%;
         img {
           width: 100%;
-          max-width: 37.5rem;
+          // max-width: 37.5rem;
         }
       }
     }
