@@ -12,6 +12,7 @@ specifiers:
   koa-cors: ^0.0.16
   koa-jwt: ^4.0.3
   koa-router: ^12.0.0
+  koa2-cors: ^2.0.6
   log4js: ^6.7.0
   mysql: ^2.18.1
   nodemon: ^2.0.20
@@ -27,6 +28,7 @@ dependencies:
   koa-cors: 0.0.16
   koa-jwt: 4.0.3
   koa-router: 12.0.0
+  koa2-cors: 2.0.6
   log4js: 6.7.0
   mysql: 2.18.1
   nodemon: 2.0.20
@@ -980,6 +982,11 @@ packages:
       vary: 1.1.2
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /koa2-cors/2.0.6:
+    resolution: {integrity: sha512-JRCcSM4lamM+8kvKGDKlesYk2ASrmSTczDtGUnIadqMgnHU4Ct5Gw7Bxt3w3m6d6dy3WN0PU4oMP43HbddDEWg==}
+    engines: {node: '>= 7.6.0'}
     dev: false
 
   /locate-path/3.0.0:

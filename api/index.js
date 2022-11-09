@@ -1,6 +1,6 @@
 const Koa = require('koa')
 // const bodyparser = require('koa-bodyparser')
-const cors = require('koa-cors') // 用于处理跨域
+const cors = require('koa2-cors') // 用于处理跨域
 const koaJwt = require('koa-jwt')
 const koaBody = require('koa-body')
 const path = require('path')
