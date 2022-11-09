@@ -31,7 +31,8 @@ export default defineNuxtConfig({
     }
   },
   meta: {
-    title: 'jiangchao',
+    title: '反方向的钟',
+    link: [{ rel: 'icon', href: '/ico.ico' }],
     meta: [
       { charset: 'utf-8' },
       {
