@@ -1,6 +1,6 @@
 const logger = require('../utils/logger')
 let env = process.env.NODE_ENV
-logger.info('env', env)
+logger.debug('env', env)
 const PORT = 8888
 let MYSQL_CONFIG = {}
 if (env === 'dev') {

@@ -26,12 +26,13 @@ function deleteDir(url) {
 
     // fs.rmdirSync(url) //清除文件夹
   } else {
-    logger.info('给定的路径不存在！')
+    logger.debug('给定的路径不存在！')
   }
 }
 async function upload() {
   return new Promise((resolve, reject) => {
     let url = path.join(__dirname, '../upload')
+    logger.debug('upload', url, path.join(__dirname, `../upload/${files[0]}`))
     // let res = await getFileName(url)
     fs.readdir(url, (err, files) => {
       var cos = new COS({
@@ -47,11 +48,11 @@ async function upload() {
             path.join(__dirname, `../upload/${files[0]}`)
           ), // 上传文件对象
           onProgress: function (progressData) {
-            logger.info(JSON.stringify(progressData))
+            logger.debug(JSON.stringify(progressData))
           }
         },
         function (err, data) {
-          logger.info(err || data)
+          logger.debug(err || data)
           if (err) {
             reject(err)
           } else {
