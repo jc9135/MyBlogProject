@@ -32,13 +32,13 @@ function deleteDir(url) {
 async function upload() {
   return new Promise((resolve, reject) => {
     let url = path.join(__dirname, '../upload')
-    logger.debug('upload', url, path.join(__dirname, `../upload/${files[0]}`))
     // let res = await getFileName(url)
     fs.readdir(url, (err, files) => {
       var cos = new COS({
         SecretId: SECRET_ID,
         SecretKey: SECRET_KEY
       })
+      logger.debug('upload', url, path.join(__dirname, `../upload/${files[0]}`))
       cos.putObject(
         {
           Bucket: 'jiangchaow-1314433594' /* 必须 */,
