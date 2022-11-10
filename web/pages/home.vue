@@ -261,10 +261,10 @@ const getBlogData = async () => {
       &:nth-child(odd) {
         flex-direction: row-reverse;
         .left {
-          width: 55%;
+          width: 45%;
         }
         .right {
-          width: 45%;
+          width: 55%;
         }
       }
       .left {
