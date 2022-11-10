@@ -12,6 +12,7 @@ export default defineNuxtConfig({
   build: {
     transpile: lifecycle === 'build' ? ['element-plus'] : []
   },
+  plugins: [{ src: '~/plugins/nprogress.ts', ssr: false }],
   vite: {
     css: {
       preprocessorOptions: {
