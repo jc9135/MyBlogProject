@@ -56,11 +56,6 @@ export default defineNuxtConfig({
         template: (chunk) => `${chunk} - My page`,
         vmid: 'og:title'
       }
-    ],
-    script: [
-      {
-        src: 'https://unpkg.com/mermaid/dist/mermaid.min.js'
-      }
     ]
   }
 })
