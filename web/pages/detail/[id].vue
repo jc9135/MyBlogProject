@@ -62,7 +62,7 @@ onMounted(() => {
 })
 const back = () => {
   router.push({
-    path: '/home'
+    path: '/'
   })
 }
 const getBlogDetailFuc = async () => {

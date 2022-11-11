@@ -238,6 +238,7 @@ const getBlogData = async () => {
   .article-card {
     margin: auto;
     width: 85%;
+    max-width: 75rem;
     padding: 6.25rem 0;
     position: relative;
     &::after {
