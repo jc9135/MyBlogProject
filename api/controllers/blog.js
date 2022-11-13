@@ -27,7 +27,7 @@ const createBlog = async (params) => {
   return await exec(sql)
 }
 const updateBlog = async (params) => {
-  let sql = `update blogs set \`content\`='${params.content}',cover='${params.cover}',describe_text='${params.describe_text}',tag='${params.tag}',title='${params.title}' where id='${params.id}'`
+  let sql = `update blogs set content='${params.content}',cover='${params.cover}',describe_text='${params.describe_text}',tag='${params.tag}',title='${params.title}' where id='${params.id}'`
   console.log(sql)
   return await exec(sql)
 }

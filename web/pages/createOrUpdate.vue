@@ -188,10 +188,11 @@ const onSubmit = (formEl) => {
   if (!formEl) return
   formEl.validate(async (valid) => {
     if (valid) {
+      let content_text = content.value.replace(/\'/g, '\\\'')
       if (route?.query?.type === 'update') {
         const res = await updateBlogItem({
           title: title.value,
-          content: content.value,
+          content: content_text,
           tag: formInline.tag,
           describe_text: formInline.describe_text,
           cover: formInline.cover,
@@ -209,7 +210,7 @@ const onSubmit = (formEl) => {
       } else {
         const res = await createBlogItem({
           title: title.value,
-          content: content.value,
+          content: content_text,
           tag: formInline.tag,
           describe_text: formInline.describe_text,
           cover: formInline.cover
