@@ -188,7 +188,8 @@ const onSubmit = (formEl) => {
   if (!formEl) return
   formEl.validate(async (valid) => {
     if (valid) {
-      let content_text = content.value.replace(/\'/g, '\\\'')
+      // let content_text = content.value.replace(/\'/g, '\\\'')
+      let content_text = content.value
       if (route?.query?.type === 'update') {
         const res = await updateBlogItem({
           title: title.value,

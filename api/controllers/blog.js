@@ -21,13 +21,13 @@ const getBlogDetail = async (id) => {
 const createBlog = async (params) => {
   let sql = `insert into blogs (title, content, author, tag, cover, describe_text, create_time) values ('${
     params.title
-  }','${params.content}','jiangchao','${params.tag}','${params.cover}','${
+  }','${params.content.replace(/\'/g, '\\\'')}','jiangchao','${params.tag}','${params.cover}','${
     params.describe_text
   }',${new Date().getTime()});`
   return await exec(sql)
 }
 const updateBlog = async (params) => {
-  let sql = `update blogs set content='${params.content}',cover='${params.cover}',describe_text='${params.describe_text}',tag='${params.tag}',title='${params.title}' where id='${params.id}'`
+  let sql = `update blogs set content='${params.content.replace(/\'/g, '\\\'')}',cover='${params.cover}',describe_text='${params.describe_text}',tag='${params.tag}',title='${params.title}' where id='${params.id}'`
   console.log(sql)
   return await exec(sql)
 }
