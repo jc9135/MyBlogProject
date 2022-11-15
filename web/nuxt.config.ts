@@ -47,7 +47,7 @@ export default defineNuxtConfig({
       },
       //在此处添加
       { name: 'referrer', content: 'no-referrer' },
-      { name: 'keyword', content: 'Vue.js,前端面试题,React,Node.js,CI,CD' },
+      { name: 'keyword', content: 'Vue.js,vuex,pinia,前端面试题,React,Redux,Node.js,CI,CD,Nuxt,Nuxt3,React hooks,webpack,html5,css3,vite,es6' },
       {
         property: 'og:title',
         content: 'Test title',
