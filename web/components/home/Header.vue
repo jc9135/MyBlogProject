@@ -1,9 +1,9 @@
 <template>
   <div class="header">
     <el-icon @click="back"><HomeFilled /></el-icon>
-    <ul class="tab-list">
+    <!-- <ul class="tab-list">
       <li class="tab-item" v-for="item in TAG_LIST" :key="item">{{ item }}</li>
-    </ul>
+    </ul> -->
     <div class="search">
       <SearchInput />
     </div>

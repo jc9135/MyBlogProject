@@ -1,8 +1,9 @@
 <template>
   <NuxtPage />
+  <el-backtop :right="100" :bottom="100" />
 </template>
 <script lang="ts" setup>
-import { ID_INJECTION_KEY, ElMessage } from 'element-plus'
+import { ID_INJECTION_KEY, ElMessage,ElBacktop } from 'element-plus'
 import mousemove from '~~/utils/mousemove'
 import { login } from '~~/utils/api'
 import useBlogState from '~~/store'
