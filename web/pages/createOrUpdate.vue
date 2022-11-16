@@ -7,6 +7,9 @@
         size="large"
         :input-style="{ border: 'none' }"
       />
+      <ElButton class="editor-btn" @click="back"
+        >取消</ElButton
+      >
       <ElButton class="editor-btn" type="primary" @click="submit"
         >编辑完成</ElButton
       >
@@ -164,6 +167,9 @@ const content = ref('')
 const title = ref('')
 const submit = () => {
   dialogVisible.value = true
+}
+const back = ()=>{
+  router.back()
 }
 const getBlogDetailFuc = async () => {
   let res = await getBlogDetail({ id: route?.query?.id })

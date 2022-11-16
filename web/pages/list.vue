@@ -7,6 +7,9 @@
       </div>
 
       <div class="body-box">
+        <div class="add-box">
+          <el-icon @click="toAdd"><Plus /></el-icon>
+        </div>
         <ul class="detail-container">
           <li
             class="detail-item"
@@ -31,7 +34,7 @@
 
 <script setup lang="ts">
 import { ElIcon, ElMessage } from 'element-plus'
-import { Delete, Edit } from '@element-plus/icons-vue'
+import { Delete, Edit, Plus } from '@element-plus/icons-vue'
 import Header from '~~/components/home/Header.vue'
 import useBlogState from '~~/store'
 import { getBlogList } from '~~/utils/api'
@@ -49,6 +52,14 @@ const toEdit = (id) => {
     query: {
       type: 'update',
       id
+    }
+  })
+}
+const toAdd = () => {
+  router.push({
+    path: `/createOrUpdate`,
+    query: {
+      type: 'create'
     }
   })
 }
@@ -81,7 +92,12 @@ const getBlogData = async () => {
   display: flex;
   .body-box {
     width: 100%;
-
+    .add-box {
+      width: 100%;
+      text-align: right;
+      border-bottom: .0625rem solid $bd-color;
+      padding: 1.25rem 0;
+    }
     .detail-container {
       margin: 0 auto;
       overflow: hidden;
