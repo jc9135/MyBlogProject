@@ -85,11 +85,11 @@ const onSubmit = (formEl) => {
   width: 100%;
   height: 100vh;
   .routeMain {
-    width: 500px;
-    height: 350px;
+    width: 31.25rem;
+    height: 21.875rem;
     margin: 0 auto;
     background: #ffffff;
-    border-radius: 4px;
+    border-radius: .25rem;
     box-shadow: 0px 2px 6px 6px rgba(0, 0, 0, 0.1);
     position: relative;
     top: 50%;
@@ -99,6 +99,18 @@ const onSubmit = (formEl) => {
     .loginButton {
       width: 100%;
       margin-top: 15px;
+    }
+  }
+}
+
+/* iphone6 7 8 plus */
+@media screen and (max-width: 900px) {
+  .route {
+    .routeMain {
+      width: 100%;
+      height: 100%;
+      transform: translateY(0%);
+      top: 0;
     }
   }
 }
