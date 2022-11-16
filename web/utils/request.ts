@@ -14,8 +14,9 @@ export interface ResponseConfig {
 const fetch = (url: string, options?: any): Promise<any> => {
   const reqUrl = baseUrl + url
   const nuxtApp = useNuxtApp()
+  const cookie = useCookie('token')
   const headers = {
-    Authorization: 'Bearer ' + nuxtApp.$cookies.get('token')
+    Authorization: 'Bearer ' + cookie.value
   }
   return new Promise((resolve, reject) => {
     useFetch(reqUrl, { ...options, initialCache: false, headers })
