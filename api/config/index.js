@@ -28,10 +28,14 @@ if (env === 'production') {
 const secret = 'jiangchao'
 const SECRET_ID = 'AKIDJYirnU1UlofKn3QfgXCf4GH4iIiwwiHD'
 const SECRET_KEY = 'sbDmIhy4ugFcnlpmaG2scBXsX1OqunUQ'
+const BUCKET = 'jiangchaow-1314433594' // 存储桶名称
+const REGION = 'ap-beijing' // 存储桶地区
 module.exports = {
   PORT,
   MYSQL_CONFIG,
   secret,
   SECRET_ID,
-  SECRET_KEY
+  SECRET_KEY,
+  BUCKET,
+  REGION
 }

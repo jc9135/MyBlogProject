@@ -5,7 +5,9 @@ const path = require('path')
 const fse = require('fs-extra')
 const { SuccessModel, ErrorModel } = require('../model/responseModel')
 const logger = require('../utils/logger')
-const { SECRET_KEY, SECRET_ID } = require('../config')
+const { SECRET_KEY, SECRET_ID,
+  BUCKET,
+  REGION } = require('../config')
 
 router.prefix('/upload')
 function deleteDir(url) {
@@ -41,8 +43,8 @@ async function upload() {
       logger.debug('upload', url, path.join(__dirname, `../upload/${files[0]}`))
       cos.putObject(
         {
-          Bucket: 'jiangchaow-1314433594' /* 必须 */,
-          Region: 'ap-beijing' /* 必须 */,
+          Bucket: BUCKET /* 必须 */,
+          Region: REGION /* 必须 */,
           Key: `${files[0]}` /* 必须 */,
           Body: fs.createReadStream(
             path.join(__dirname, `../upload/${files[0]}`)
