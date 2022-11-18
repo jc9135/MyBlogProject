@@ -1,6 +1,6 @@
 <template>
   <NuxtPage />
-  <el-backtop :right="100" :bottom="100" />
+  <el-backtop :right="35" :bottom="40" />
 </template>
 <script lang="ts" setup>
 import { ID_INJECTION_KEY, ElMessage,ElBacktop } from 'element-plus'
