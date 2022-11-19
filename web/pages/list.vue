@@ -8,7 +8,7 @@
 
       <div class="body-box">
         <div class="add-box">
-          <el-icon @click="toAdd"><Plus /></el-icon>
+          <el-icon @click="toAdd" v-if="isAdmin"><Plus /></el-icon>
         </div>
         <ul class="detail-container">
           <li
