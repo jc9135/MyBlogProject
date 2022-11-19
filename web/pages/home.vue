@@ -121,7 +121,6 @@ const getBlogData = async () => {
       position: absolute;
       top: 1.5625rem;
       width: 100%;
-      @include font_color(#fff);
       justify-content: space-between;
       font-size: 1.875rem;
       z-index: 1000;
@@ -129,6 +128,7 @@ const getBlogData = async () => {
       .icon {
         margin-left: 1.5625rem;
         cursor: pointer;
+        color: #fff;
       }
     }
     .text {
