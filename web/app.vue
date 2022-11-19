@@ -28,7 +28,7 @@ const loginFun = async () => {
 onMounted(async () => {
   let theme = 'white'
   if(window.localStorage) {
-    theme = window.localStorage.getItem('theme')
+    theme = window.localStorage.getItem('theme') || 'white'
   }
   const ele = document.body
   ele.setAttribute('data-theme',theme)
