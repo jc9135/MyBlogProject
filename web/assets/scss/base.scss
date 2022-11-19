@@ -1,14 +1,65 @@
 @use 'element-plus/dist/index.css';
-$bg-color: #ed795a;
-$bd-color: #eee;
-$input-bd: #50576659;
+$bg-color-white: #ffffff;
+$bg-color-dark: #020102;
+$font-color-white: #333;
+$font-color-dark: #fff;
+$bd-color-white: #eee;
+$bd-color-dark: #494848;
+$input-bd-white: #50576659;
+$input-bd-dark: #eee;
 $input-foucs-bd: #0091ff;
 
+@mixin input_bd_color($color) {
+  /*通过该函数设置字体颜色，后期方便统一管理；*/
+  color: $color !important;
+  [data-theme="white"] & {
+    color: $input-bd-white !important;
+  }
+  [data-theme="dark"] & {
+    color: $input-bd-dark !important;
+  }
+}
+@mixin font_color($color) {
+  /*通过该函数设置字体颜色，后期方便统一管理；*/
+  color: $color !important;
+  [data-theme="white"] & {
+    color: $font-color-white !important;
+  }
+  [data-theme="dark"] & {
+    color: $font-color-dark !important;
+  }
+}
+
+@mixin bg_color($color) {
+  background-color: $color !important;
+  [data-theme="white"] & {
+    background-color: $bg-color-white !important;
+  }
+  [data-theme="dark"] & {
+    background-color: $bg-color-dark !important;
+  }
+}
+
+@mixin bd_color($color) {
+  border-color: $color !important;
+  [data-theme="white"] & {
+    border-color: $bd-color-white !important;
+  }
+  [data-theme="dark"] & {
+    border-color: $bd-color-dark !important;
+  }
+}
+
 body {
-  color: #333 !important;
+  color: $font-color-white !important;
+  background-color: $bg-color-white;
   font-family: -apple-system BlinkMacSystemFont Tahoma Arial sans-serif,
     Segoe UI, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei,
     Microsoft JhengHei, Noto Sans !important;
+  &[data-theme=dark] {
+    color: $font-color-white !important;
+    background-color: $bg-color-dark !important;
+  }
 }
 article,
 aside,

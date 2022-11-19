@@ -26,7 +26,12 @@ const loginFun = async () => {
   }
 }
 onMounted(async () => {
+  let theme = 'white'
+  if(window.localStorage) {
+    theme = window.localStorage.getItem('theme')
+  }
   const ele = document.body
+  ele.setAttribute('data-theme',theme)
   mousemove(ele)
   loginFun()
 })

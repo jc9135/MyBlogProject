@@ -28,10 +28,12 @@ const back = () => {
   width: 100%;
   height: 3.125rem;
   line-height: 3.125rem;
-  border-bottom: 1px solid $bd-color;
+  border-bottom: 1px solid;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  @include bd_color(#fff);
+  @include font_color(#fff);
   .tab-list {
     list-style: none;
     display: flex;

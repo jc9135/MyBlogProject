@@ -121,7 +121,7 @@ const getBlogData = async () => {
       position: absolute;
       top: 1.5625rem;
       width: 100%;
-      color: #fff;
+      @include font_color(#fff);
       justify-content: space-between;
       font-size: 1.875rem;
       z-index: 1000;
@@ -133,13 +133,13 @@ const getBlogData = async () => {
     }
     .text {
       position: absolute;
-      color: #fff;
       font-size: 1rem;
       left: 10%;
       top: 54%;
       transform: translateY(-50%);
       width: 30%;
       min-width: 16.25rem;
+      color: #fff;
       .time {
         font-size: 0.875rem;
         margin-bottom: 0.625rem;
@@ -242,7 +242,7 @@ const getBlogData = async () => {
     padding: 6.25rem 0;
     position: relative;
     &::after {
-      background: #eaeaea;
+      // background: #eaeaea;
       content: '';
       height: 100%;
       left: 50%;
@@ -250,6 +250,8 @@ const getBlogData = async () => {
       top: 0;
       transform: translate(-50%);
       width: 1px;
+      border-right: .0625rem solid #eee;
+      @include bd_color(#fff);
       z-index: 0;
     }
     .card-item {
@@ -273,7 +275,8 @@ const getBlogData = async () => {
         height: 16rem;
         box-sizing: border-box;
         padding: 3.125rem 3.75rem 0;
-        border: 1px solid $bd-color;
+        border: 1px solid;
+        @include bd_color(#eee);
         .time {
           color: #999;
           font-size: 0.75rem;
@@ -336,13 +339,16 @@ const getBlogData = async () => {
         flex-direction: column !important;
         margin-top: 6.25rem;
         .left {
-          background: #fff;
-          border: none !important;
+          @include bg_color(#fff);
+          border-top: none !important;
+          border-left: none !important;
+          border-right: none !important;
           height: auto !important;
           margin: auto !important;
           padding: 1.25rem !important;
           width: 100% !important;
-          border-bottom: 1px solid $bd-color !important;
+          border-bottom: 1px solid !important;
+          @include bd_color(#eee);
         }
         .right {
           width: 100% !important;

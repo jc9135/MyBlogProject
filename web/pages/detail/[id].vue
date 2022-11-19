@@ -1,7 +1,15 @@
 <template>
   <div class="detail-container">
     <div class="header">
-      <el-icon @click="back"><HomeFilled /></el-icon>
+      <div class="left-icon">
+        <el-icon @click="back"><HomeFilled /></el-icon>
+      </div>
+      <div class="right-icon">
+        <el-icon v-if="theme === 'white'" @click="changeTheme"
+          ><Sunny
+        /></el-icon>
+        <el-icon v-else @click="changeTheme"><Moon /></el-icon>
+      </div>
     </div>
     <div class="main-box">
       <div class="title">{{ state.title }}</div>
@@ -28,7 +36,7 @@ import createEmojiPlugin from '@kangc/v-md-editor/lib/plugins/emoji/index'
 import '@kangc/v-md-editor/lib/plugins/emoji/emoji.css'
 import { getBlogDetail } from '~~/utils/api'
 import { ElIcon } from 'element-plus'
-import { HomeFilled } from '@element-plus/icons-vue'
+import { HomeFilled, Sunny, Moon } from '@element-plus/icons-vue'
 
 // Prism
 import Prism from 'prismjs'
@@ -57,9 +65,24 @@ const state = reactive({
 })
 onMounted(() => {
   setTimeout(() => {
+    let localTheme = window.localStorage.getItem('theme')
+    theme.value = localTheme
     getBlogDetailFuc()
   }, 1)
 })
+const theme = ref( 'white')
+const changeTheme = () => {
+  document.body.setAttribute(
+    'data-theme',
+    theme.value === 'white' ? 'dark' : 'white'
+  )
+  window.localStorage.setItem(
+    'theme',
+    theme.value === 'white' ? 'dark' : 'white'
+  )
+  theme.value = theme.value === 'white' ? 'dark' : 'white'
+}
+
 const back = () => {
   router.push({
     path: '/'
@@ -83,9 +106,14 @@ const getBlogDetailFuc = async () => {
   min-height: 100vh;
   box-sizing: border-box;
   .header {
-    border-bottom: 0.0625rem solid #eee;
+    border-bottom: 0.0625rem solid;
     padding: 1.25rem 1.25rem;
+    height: 1.5625rem;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    @include font_color(#000);
+    @include bd_color(#eee);
   }
   .main-box {
     max-width: 50rem;
@@ -94,6 +122,7 @@ const getBlogDetailFuc = async () => {
       font-size: 1.625rem;
       padding: 4rem 2.5rem 2rem;
       font-weight: 600;
+      @include font_color(#000);
     }
     .info {
       padding: 0 2.5rem;
@@ -101,11 +130,18 @@ const getBlogDetailFuc = async () => {
       line-height: 22px;
     }
     .cross-line {
-      width: 100%;
+      width: calc(100% - 5rem);
       margin: 0.625rem 2.5rem 2.5rem;
       box-sizing: border-box;
       height: 1px;
-      background-color: #eee;
+      border-bottom: 0.0625rem solid;
+      @include bd_color(#eee);
+    }
+    .content {
+      :deep(.vuepress-markdown-body) {
+        @include bg_color(#fff);
+        @include font_color(#fff);
+      }
     }
   }
 }

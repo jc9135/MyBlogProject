@@ -38,7 +38,8 @@ const search = async () => {
     border-radius: 1.25rem;
     padding: 0 0.625rem;
     background: transparent;
-    border: 1px solid $input-bd;
+    border: 1px solid;
+    @include input_bd_color(#50576659);
     box-shadow: inset 0 0 0 0 transparent;
     &:focus {
       border: 1px solid $input-foucs-bd;

@@ -95,8 +95,10 @@ const getBlogData = async () => {
     .add-box {
       width: 100%;
       text-align: right;
-      border-bottom: .0625rem solid $bd-color;
+      border-bottom: .0625rem solid;
       padding: 1.25rem 0;
+      @include bd_color(#fff);
+      @include font_color(#fff);
     }
     .detail-container {
       margin: 0 auto;
@@ -109,12 +111,15 @@ const getBlogData = async () => {
         height: 5rem;
         line-height: 5rem;
         box-sizing: border-box;
-        border-bottom: 1px solid $bd-color;
+        border-bottom: 1px solid;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @include bd_color(#fff);
+        @include font_color(#fff);
         .edit-icon {
           margin: 0 0.625rem;
+          @include font_color(#fff);
         }
       }
     }
