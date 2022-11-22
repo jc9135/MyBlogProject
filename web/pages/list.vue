@@ -16,7 +16,10 @@
             v-for="item in blogState.blogList"
             :key="item.id"
           >
-            <div @click="goDetail(item.id)">{{ item.title }}</div>
+            <div class="detail-main">
+              <div class="detail-title" @click="goDetail(item.id)">{{ item.title }}</div>
+              <div class="detail-describe">{{ item.describe_text }}</div>
+            </div>
             <div class="icon-container">
               <template v-if="isAdmin">
                 <el-icon class="edit-icon" @click="toEdit(item.id)"
@@ -109,7 +112,7 @@ const getBlogData = async () => {
         margin: 0.3125rem;
         padding: 0 0.625rem;
         height: 5rem;
-        line-height: 5rem;
+        // line-height: 5rem;
         box-sizing: border-box;
         border-bottom: 1px solid;
         display: flex;
@@ -117,6 +120,19 @@ const getBlogData = async () => {
         align-items: center;
         @include bd_color(#fff);
         @include font_color(#fff);
+        .detail-main {
+          height: 100%;
+          padding-top: .9375rem;
+          box-sizing: border-box;
+          .detail-title {
+            font-weight: 600;
+          }
+          .detail-describe {
+            margin-top: .625rem;
+            font-size: .75rem;
+            color: gray;
+          }
+        }
         .edit-icon {
           margin: 0 0.625rem;
           @include font_color(#fff);

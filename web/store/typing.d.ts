@@ -10,5 +10,6 @@ declare namespace BlogModule {
     author: string
     create_time: number
     state: number
+    describe_text:string
   }
 }
