@@ -25,5 +25,8 @@ router.post('/login', async (ctx, next) => {
 router.post('/logout', async (ctx, next) => {
   const params = ctx.request.body
 })
+router.post('/isLogin', async (ctx, next) => {
+  ctx.body = new SuccessModel(null, '获取登录状态成功')
+})
 
 module.exports = router

@@ -40,8 +40,8 @@ const store = useBlogState()
 const router = useRouter()
 const ruleFormRef = ref()
 const formInline = reactive({
-  username: '',
-  password: ''
+  username: 'admin',
+  password: 'admin'
 })
 const rules = reactive({
   username: [

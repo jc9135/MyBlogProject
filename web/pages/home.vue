@@ -54,13 +54,17 @@ const blogState = useBlogState()
 const router = useRouter()
 const typing = ref(null)
 let state = reactive({
-  articlelist: []
+  articlelist: [],
+  timer:null
 })
 onMounted(() => {
-  setTimeout(() => {
+  state.timer = setTimeout(() => {
     renderTyping()
     getBlogData()
   }, 1)
+})
+onBeforeUnmount(() => {
+  state.timer = null
 })
 const renderTyping = () => {
   let str = [

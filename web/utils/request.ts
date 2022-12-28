@@ -14,13 +14,20 @@ export interface ResponseConfig {
 const fetch = (url: string, options?: any): Promise<any> => {
   const reqUrl = baseUrl + url
   const nuxtApp = useNuxtApp()
-  const cookie = useCookie('token')
-  const headers = {
-    Authorization: 'Bearer ' + cookie.value
-  }
   return new Promise((resolve, reject) => {
-    useFetch(reqUrl, { ...options, initialCache: false, headers })
-      .then(({ data, error }: any) => {
+    useFetch(reqUrl, {
+      ...options,
+      server: false,
+      initialCache: false,
+      // headers,
+      onRequest({ request, options }:any) {
+        // Set the request headers
+        const cookie = useCookie('token')
+        options.headers = options.headers || {}
+        options.headers.authorization = 'Bearer ' + cookie.value
+      }
+    })
+      .then(({ data, error, refresh }: any) => {
         if (error.value) {
           reject(error.value)
           return
@@ -37,12 +44,12 @@ const fetch = (url: string, options?: any): Promise<any> => {
         } else if (value.errorCode === 401) {
           // 处理token失效
           ElMessage({
-            message: value.message,
+            message: 'Token 失效，请刷新页面',
             type: 'error'
           })
-          nuxtApp.$router.push({
-            path: '/login'
-          })
+          // nuxtApp.$router.push({
+          //   path: '/login'
+          // })
         } else {
           resolve(value)
         }

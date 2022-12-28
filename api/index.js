@@ -117,8 +117,8 @@ const blog = require('./routes/blog')
 const user = require('./routes/user')
 const uploadImg = require('./routes/uploadImg')
 
-app.use(blog.routes(), blog.allowedMethods())
 app.use(user.routes(), user.allowedMethods())
+app.use(blog.routes(), blog.allowedMethods())
 app.use(uploadImg.routes(), uploadImg.allowedMethods())
 
 // 全局错误处理
