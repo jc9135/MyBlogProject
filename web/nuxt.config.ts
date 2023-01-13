@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     }
   },
   meta: {
-    title: '反方向的钟',
+    title: '',
     link: [{ rel: 'icon', href: '/ico.ico' }],
     meta: [
       { charset: 'utf-8' },
